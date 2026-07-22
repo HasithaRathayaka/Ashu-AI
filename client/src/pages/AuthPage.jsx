@@ -17,7 +17,6 @@ export default function AuthPage() {
     { title: 'SEO Article Writer', desc: 'Generate long-form articles in seconds', icon: FileText },
     { title: 'AI Image Generator', desc: 'Photorealistic AI art & visuals', icon: ImageIcon },
     { title: 'Background Remover', desc: 'Instant transparent PNG isolation', icon: Scissors },
-    { title: 'Resume Reviewer', desc: 'AI ATS audit & CV optimization', icon: UserCheck },
   ];
 
   return (

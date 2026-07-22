@@ -5,7 +5,6 @@ import {
   FileText, 
   Heading1, 
   Image as ImageIcon, 
-  UserCheck, 
   Scissors, 
   Eraser,
   Sparkles,
@@ -40,14 +39,6 @@ export const AI_TOOLS = [
     icon: ImageIcon,
     badge: 'Hot',
     path: '/tools/image-generator'
-  },
-  {
-    id: 'resume-review',
-    name: 'Resume Review',
-    description: 'Instant CV critique & suggestions',
-    category: 'Career',
-    icon: UserCheck,
-    path: '/tools/resume-review'
   },
   {
     id: 'remove-background',

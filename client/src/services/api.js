@@ -51,22 +51,9 @@ export const removeObjectApi = async (formData) => {
   return response.data;
 };
 
-export const reviewResumeApi = async (formDataOrData) => {
-  const isFormData = formDataOrData instanceof FormData;
-  const response = await api.post('/ai/review-resume', formDataOrData, {
-    headers: isFormData ? { 'Content-Type': 'multipart/form-data' } : { 'Content-Type': 'application/json' }
-  });
-  return response.data;
-};
-
-// User History & Community Feed Methods
+// User History Methods
 export const getUserCreationsApi = async (userId) => {
   const response = await api.get('/user/creations', { params: { userId } });
-  return response.data;
-};
-
-export const getCommunityCreationsApi = async () => {
-  const response = await api.get('/user/community');
   return response.data;
 };
 

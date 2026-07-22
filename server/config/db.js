@@ -1,4 +1,8 @@
 import mongoose from 'mongoose';
+import dns from 'dns';
+
+// Ensure IPv4 result order for Node DNS resolution on Windows
+dns.setDefaultResultOrder('ipv4first');
 
 const connectDB = async () => {
   try {
@@ -14,7 +18,8 @@ const connectDB = async () => {
     return true;
   } catch (error) {
     console.error(`❌ Mongoose Connection Error: ${error.message}`);
-    process.exit(1);
+    console.warn('⚠️ Server running without active MongoDB connection. Check your Atlas IP Whitelist.');
+    return false;
   }
 };
 

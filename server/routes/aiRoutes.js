@@ -5,8 +5,7 @@ import {
   generateBlogTitles, 
   generateImage, 
   removeBackground, 
-  removeObject, 
-  reviewResume 
+  removeObject 
 } from '../controllers/aiController.js';
 
 const router = express.Router();
@@ -23,6 +22,5 @@ router.post('/titles', generateBlogTitles);
 router.post('/image', generateImage);
 router.post('/remove-bg', upload.single('image'), removeBackground);
 router.post('/remove-object', upload.single('image'), removeObject);
-router.post('/review-resume', upload.single('resume'), reviewResume);
 
 export default router;

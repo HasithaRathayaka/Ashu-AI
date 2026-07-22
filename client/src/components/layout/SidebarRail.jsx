@@ -4,9 +4,7 @@ import { UserButton, useUser } from '@clerk/clerk-react';
 import { 
   Sparkles, 
   Home, 
-  Wand2, 
-  Globe, 
-  Settings 
+  Wand2 
 } from 'lucide-react';
 
 export default function SidebarRail() {
@@ -15,9 +13,7 @@ export default function SidebarRail() {
 
   const navItems = [
     { path: '/', icon: Home, label: 'Dashboard' },
-    { path: '/tools', icon: Wand2, label: 'AI Tools' },
-    { path: '/community', icon: Globe, label: 'Community Feed' },
-    { path: '/settings', icon: Settings, label: 'Settings' },
+    { path: '/tools', icon: Wand2, label: 'AI Tools' }
   ];
 
   return (

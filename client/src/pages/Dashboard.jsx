@@ -11,21 +11,23 @@ import {
   FileText,
   Image as ImageIcon
 } from 'lucide-react';
+import { useUser } from '@clerk/clerk-react';
 import { AI_TOOLS } from '../components/layout/InnerSidebar';
 import { getUserCreationsApi } from '../services/api';
 
 export default function Dashboard() {
+  const { user } = useUser();
   const [creations, setCreations] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchUserHistory();
-  }, []);
+  }, [user]);
 
   const fetchUserHistory = async () => {
     try {
       setLoading(true);
-      const data = await getUserCreationsApi();
+      const data = await getUserCreationsApi(user?.id);
       if (data.success) {
         setCreations(data.creations || []);
       }
@@ -53,7 +55,7 @@ export default function Dashboard() {
           </h1>
 
           <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-            Select an AI creation tool below to craft articles, generate hyper-realistic artwork, analyze resumes, or edit images with precision.
+            Select an AI creation tool below to craft articles, generate hyper-realistic artwork, or edit images with precision.
           </p>
 
           <div className="pt-2 flex flex-wrap items-center gap-4">

@@ -6,8 +6,10 @@ import User from '../models/User.js';
  */
 export const getUserCreations = async (req, res) => {
   try {
-    const userId = req.auth?.userId || req.query.userId || 'anonymous_user';
-    const creations = await Creation.find({ userId }).sort({ createdAt: -1 });
+    const userId = req.auth?.userId || req.query.userId;
+    // If userId is present and not 'anonymous_user', filter by userId; otherwise return recent creations
+    const query = (userId && userId !== 'anonymous_user') ? { userId } : {};
+    const creations = await Creation.find(query).sort({ createdAt: -1 }).limit(50);
 
     res.status(200).json({
       success: true,
@@ -17,24 +19,6 @@ export const getUserCreations = async (req, res) => {
   } catch (error) {
     console.error('🔥 getUserCreations Error:', error);
     res.status(500).json({ success: false, message: error.message || 'Failed to fetch user creations' });
-  }
-};
-
-/**
- * Fetch public community creations
- */
-export const getCommunityCreations = async (req, res) => {
-  try {
-    const creations = await Creation.find({ isPublic: true }).sort({ createdAt: -1 }).limit(50);
-
-    res.status(200).json({
-      success: true,
-      count: creations.length,
-      creations
-    });
-  } catch (error) {
-    console.error('🔥 getCommunityCreations Error:', error);
-    res.status(500).json({ success: false, message: error.message || 'Failed to fetch community feed' });
   }
 };
 

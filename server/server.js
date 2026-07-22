@@ -38,8 +38,7 @@ app.get('/', (req, res) => {
     endpoints: {
       health: '/api/test/health',
       aiTools: '/api/ai/*',
-      userCreations: '/api/user/creations',
-      communityFeed: '/api/user/community'
+      userCreations: '/api/user/creations'
     }
   });
 });
