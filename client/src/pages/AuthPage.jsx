@@ -85,11 +85,11 @@ export default function AuthPage() {
         </div>
 
         {/* Feature Grid Preview */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pt-8 text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 text-left max-w-3xl mx-auto w-full">
           {tools.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div key={idx} className="p-4 rounded-2xl bg-zinc-900/80 border border-white/10 space-y-2 shadow-md">
+              <div key={idx} className="p-4 rounded-2xl bg-zinc-900/80 border border-white/10 space-y-2 shadow-md hover:border-indigo-500/30 transition-all">
                 <div className="p-2 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 w-fit">
                   <Icon className="w-4 h-4" />
                 </div>

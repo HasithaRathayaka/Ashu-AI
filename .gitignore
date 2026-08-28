@@ -12,10 +12,19 @@ client/dist/
 
 # Environment variables & secrets (CRITICAL)
 .env
+.env.*
 *.env
-server/.env
-client/.env
 *.env.local
+*.env.*
+server/.env
+server/.env.*
+client/.env
+client/.env.*
+client/.env.local
+!.env.example
+!*.env.example
+!server/.env.example
+!client/.env.example
 
 # Logs & Cache
 npm-debug.log*
